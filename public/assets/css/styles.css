@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+h4{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.leader-board{
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    font-family: monospace;
+    padding: 2rem;
+    font-size: 2rem;
+    border-radius: 5%;
+}
+
+
+.img-score{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    top: 7px;
+    left:-8px;
+}
+
+.target {
+    position: fixed;
+    width: 28vmin;
+    height: auto;
+    bottom: -2vmin;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0.9);
+}
+
+.drop {
+    position: fixed;
+    width: 120px;
+    display: inline-block;
+    transform: rotate(10deg);
+    animation: sway 1s infinite alternate ease-in-out;
+}
+
+.drop.landed {
+    transform: rotate(0deg);
+    opacity: 0;
+    animation: fadeout 90s;
+    transform-origin: bottom;
+}
+
+.drop.landed .globe {
+    transform: scale(0);
+    animation: shrink 1s ease-in-out;
+    transform-origin: bottom;
+}
+
+.drop .username{
+    font-size: 2.5rem;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-family: monospace;
+    text-shadow: #f0f0 1px 0 10px;
+    transform: translateX(-30%);
+}
+
+.drop .globe {
+    width: 100%;
+}
+
+.drop .user-image {
+    display: block;
+    margin: 0 auto;
+    width: 56px;
+    height: 56px;
+    margin-top: -10px;
+}
+
+.drop .avatar {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+        display: block;
+    }
+    100% {
+        transform: scale(0);
+        display: none;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+       opacity: 0;
+       transform: scale(0);
+    }
+}
