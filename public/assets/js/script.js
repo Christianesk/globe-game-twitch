@@ -270,7 +270,7 @@ client.on('message', async  (channel, { emotes, username, 'display-name': displa
         }
 
         //Send Messages
-        client.say(channel, `@${username}, heya!`);
+        //client.say(channel, `@${username}, heya!`);
     }
 });
 
