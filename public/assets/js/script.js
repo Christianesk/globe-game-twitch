@@ -113,9 +113,6 @@ function checkAABBCollision(A, B) {
     ) {
       return;
     }
-    // TODO: Implement a proper 2D impulse exchange when the gravity is implemented.
-    // Now it could result in one of the drops flying upwards forever after collision.
-    // For now exchanging x velocity works good enough.
     const tmp = drop.velocity.x;
     drop.velocity.x = drop2.velocity.x;
     drop2.velocity.x = tmp;
@@ -128,7 +125,6 @@ function checkAABBCollision(A, B) {
         const drop2 = drops[j];
         processCollision(drop, drop2)
       }
-      // Process collisions with the browser edges
       if(drop.getLeft() < 0) {
         drop.velocity.x = Math.abs(drop.velocity.x)
       }
@@ -249,7 +245,6 @@ client.on('message', async  (channel, { emotes, username, 'display-name': displa
 
     if (message.startsWith('!drop')) {
         const name = displayName || username;
-        //if (currentUsers[name]) return;
         const args = message.split(' ');
         args.shift();
         const url = args.length ? args[0].trim() : '';
@@ -274,6 +269,7 @@ client.on('message', async  (channel, { emotes, username, 'display-name': displa
             });
         }
 
+        //Send Messages
         client.say(channel, `@${username}, heya!`);
     }
 });
