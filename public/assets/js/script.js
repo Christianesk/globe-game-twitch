@@ -14,7 +14,7 @@ function createDrop(url, username, isAvatar = false) {
     div.className = 'drop';
     div.innerHTML = `
         <h4 class="username">${username}</h4>
-        <img class="globe" src="assets/images/globe.svg" alt="">
+        <img class="globe" src="/assets/images/globe.svg" alt="">
         <div class="user-image">
             <img class="${isAvatar ? 'avatar' : ' '}"
                 src="${url}"
